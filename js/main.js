@@ -23,22 +23,44 @@ directionsDisplay.setMap(map);
 
 // Define calcRoute function
 function calcRoute() {
-    //create request
+
+	var waypts = [];
+   waypts.push({
+              location: document.getElementById("location-1").value,
+              stopover: true
+            });
+
+    //create requestfdire
     var request = {
-        origin: document.getElementById("location-1").value,
+        origin: "8120 304th Ave. SE Preston, WA 98050",
         destination: document.getElementById("location-2").value,
+waypoints: waypts,
+	optimizeWaypoints: true,
         travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC
-    }
+        unitSystem: google.maps.UnitSystem.IMPERIAL    }
 
     // Routing
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
 
-            //Get distance and time            
-            
-            $("#output").html("<div class='result-table'> Driving distance: " + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".</div>");
+            //Get distance and time 
+
+ var totalDist = 0;
+var i = 0;
+  
+  var myroute = result.routes[0];
+  for (i = 0; i < myroute.legs.length; i++) {
+    totalDist += myroute.legs[i].distance.value;
+  }	
+totalDist = totalDist * 0.000621371;
+window.alert(totalDist);
+
+	 	            
+            $("#output").html("<div class='result-table'> Driving distance: " + totalDist + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".</div>");
             document.getElementById("output").style.display = "block";
+
+
+
 
             //display route
             directionsDisplay.setDirections(result);
