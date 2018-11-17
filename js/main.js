@@ -53,7 +53,9 @@ var i = 0;
     totalDist += myroute.legs[i].distance.value;
   }	
 totalDist = totalDist * 0.000621371;
-window.alert(totalDist);
+var numpieces = document.getElementById("numpieces_id").value;
+var stairs = document.getElementById("stairs_id").value;
+window.alert(stairs);
 
 	 	            
             $("#output").html("<div class='result-table'> Driving distance: " + totalDist + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".</div>");
