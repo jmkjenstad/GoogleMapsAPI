@@ -47,14 +47,14 @@ body{
     padding: 2rem;
 }
 
-.location-label{
+.form-label{
     font-size: 1.6rem;
     float: left;
     width: 25%;
     margin-top: .6rem;
 }
 
-.location-input{
+.form-input{
     float: left;
     width: 75%;
     margin-top: .6rem;

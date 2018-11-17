@@ -26,14 +26,14 @@ function calcRoute() {
 
 	var waypts = [];
    waypts.push({
-              location: document.getElementById("location-1").value,
+              location: document.getElementById("pickup_id").value,
               stopover: true
             });
 
     //create requestfdire
     var request = {
         origin: "8120 304th Ave. SE Preston, WA 98050",
-        destination: document.getElementById("location-2").value,
+        destination: document.getElementById("dropoff_id").value,
 waypoints: waypts,
 	optimizeWaypoints: true,
         travelMode: google.maps.TravelMode.DRIVING,
@@ -89,8 +89,8 @@ var options = {
 }
 
 
-var input1 = document.getElementById("location-1");
+var input1 = document.getElementById("pickup_id");
 var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
 
-var input2 = document.getElementById("location-2");
+var input2 = document.getElementById("dropoff_id");
 var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
