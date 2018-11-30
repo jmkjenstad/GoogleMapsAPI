@@ -54,11 +54,53 @@ var i = 0;
   }	
 totalDist = totalDist * 0.000621371;
 var numpieces = document.getElementById("numpieces_id").value;
-var stairs = document.getElementById("stairs_id").value;
-window.alert(stairs);
+var stairs = document.getElementById("stairs_id").checked;
+var elevator = document.getElementById("elevator_id").checked;
+var curbside = document.getElementById("curbside_id").checked;
+var inside = document.getElementById("inside_id").checked;
+var leg1 = myroute.legs[0].distance.value * 0.000621371;
+var leg2 = myroute.legs[1].distance.value * 0.000621371;
+
+var stairsVal = 0;
+var elevatorVal = 0;
+var curbVal = 1;
+
+if (stairs == true)
+{
+	stairsVal = 1;
+}
+else
+{
+	stairsVal = 0;
+}
+
+if (elevator == true)
+{
+	elevatorVal = 1;
+}
+else
+{
+	elevatorVal = 0;
+}
+
+if (curbside == true)
+{
+	curbVal = 1;
+}
+else
+{
+	curbVal = 0;
+}
+
+
+
+
+
+var estimate = 80 + (2 * leg1) + (6 * leg2) + (12 * numpieces) + (stairsVal * (5*numpieces)) + (elevatorVal * (8*numpieces)) + (curbVal * (-5 * numpieces));
+
 
 	 	            
-            $("#output").html("<div class='result-table'> Driving distance: " + totalDist + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".</div>");
+            $("#output").html("<div class='result-table'> Driving distance: " + totalDist + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".<br />Estimated Cost: " + estimate + "</div>");
             document.getElementById("output").style.display = "block";
 
 
