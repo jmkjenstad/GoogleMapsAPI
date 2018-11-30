@@ -97,10 +97,11 @@ else
 
 
 var estimate = 80 + (2 * leg1) + (6 * leg2) + (12 * numpieces) + (stairsVal * (5*numpieces)) + (elevatorVal * (8*numpieces)) + (curbVal * (-5 * numpieces));
+estimate = estimate.toFixed(2);
 
 
 	 	            
-            $("#output").html("<div class='result-table'> Driving distance: " + totalDist + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".<br />Estimated Cost: " + estimate + "</div>");
+            $("#output").html("<div class='result-table'> Driving distance: " + totalDist + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".<br />Estimated Cost: $" + estimate + "</div>");
             document.getElementById("output").style.display = "block";
 
 
