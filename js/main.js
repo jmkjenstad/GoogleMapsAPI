@@ -101,7 +101,7 @@ estimate = estimate.toFixed(2);
 
 
 	 	            
-            $("#output").html("<div class='result-table'> Estimated Cost: " + estimate + "</div>");
+            $("#output").html("<div class='result-table'> Estimated Cost: $" + estimate + "</div>");
             document.getElementById("output").style.display = "block";
 
 
